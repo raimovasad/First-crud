@@ -1,0 +1,41 @@
+<form class="col s12" method="POST" action="/join/add" novalidate>
+  <h1 class="join-title">Join your favourite cloth</h1>
+
+{{#if error}}
+  <p class="alert">{{error}}</p>
+{{/if}}
+  <div class="row">
+
+    <div class="input-field col s12">
+      <input id="type" name="type" type="text" class="validate" required />
+      <label for="type">Cloth Type</label>
+      <span class="helper-text" data-error="Input the type of the cloth"></span>
+
+    </div>
+
+    <div class="input-field col s12">
+      <input
+        id="price"
+        type="number"
+        name="price"
+        class="validate"
+        min="1"
+        required
+      />
+      <label for="price">Price</label>
+      <span class="helper-text" data-error="Input price of the cloth"></span>
+    </div>
+
+    <div class="input-field col s12">
+      <input id="image" type="text" name="image" class="validate" required />
+      <label for="image">Image URL</label>
+      <span
+        class="helper-text"
+        data-error="Put the url adress of the image"
+      ></span>
+    </div>
+     <input type="hidden" name="_csrf" value="{{csrf}}">
+  </div>
+  <button type="submit" class="btn btn-primary">Join Cloth</button>
+
+</form>

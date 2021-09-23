@@ -1,0 +1,47 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Bougessa</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {{#if isCloth}}
+             <li class="active"><a href="/clothes">Clothes Collection</a></li>
+        {{else}}
+             <li><a href="/clothes">Clothes Collection</a></li>
+         {{/if}}
+
+        {{#if isAuth}}
+                  {{#if isJoin}}
+                  <li class="active"><a href="/join">Join Cloth</a></li>
+              {{else}}
+                 <li><a href="/join">Join Cloth</a></li>
+              {{/if}}
+
+                  {{#if isProfile}}
+                  <li class="active"><a href="/profile">Profile</a></li>
+              {{else}}
+                 <li><a href="/profile">Profile</a></li>
+              {{/if}}
+
+               {{#if isBuy}}
+                 <li class="active"><a href="/card">Bought Clothes</a></li>
+               {{else}}
+                     <li><a href="/card">Bought Clothes</a></li>
+               {{/if}}
+
+               {{#if isOrder}}
+                 <li class="active"><a href="/order">Orders</a></li>
+               {{else}}
+                     <li><a href="/order">Orders</a></li>
+               {{/if}}
+                <li><a href="/auth/logout">Escape</a></li>
+        {{else}}
+            {{#if isLogin}}
+                <li class="active"><a href="/auth/login#login">Login</a></li>
+              {{else}}
+                    <li><a href="/auth/login#login">Login</a></li>
+              {{/if}}
+        {{/if}}
+          
+          
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,43 @@
+<h1>Card page</h1>
+
+<div class="card">
+    {{#if clothes.length}}
+
+        <div class="row">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type of cloth</th>
+                    <th>Count</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each clothes}}
+               
+                <tr>
+                    <td>{{type}}</td>   
+                    <td>({{count}}x<span class="small-price">{{price}}</span>)</td>
+                    <td><span class="two-price">{{priceAll}}</span></td>
+                    <td><button class="btn btn-small red js-remove" 
+                    data-id="{{id}}"
+                    data-csrf="{{@root.csrf}}">Cancel</button></td>
+                   </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <div class="table-bottom">
+            <p class="price-table">Total price <span class="price">{{price}}</span></p>
+        </div>
+        <form action="/order" method="POST">
+         <input type="hidden" name="_csrf" value="{{csrf}}">
+            <button type="submit" class="btn green">Make order</button>
+        </form>
+
+        </div>
+</div>
+{{else}}
+<p>Card is Empty!!</p>
+{{/if}}
